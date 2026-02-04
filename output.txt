@@ -1,0 +1,212 @@
+--- CYCLE 1 ---
+WB  :
+MEM :
+EX  :
+ID  :
+IF  : addi x1,x0,10
+
+
+Registers after cycle 1:
+x0=0  x1=0  x2=0  x3=0  x4=0  x5=0  x6=0  x7=0
+
+--- CYCLE 2 ---
+WB  : 
+MEM :
+EX  :
+ID  : addi x1,x0,10
+
+IF  : addi x2,x0,3
+
+
+Registers after cycle 2:
+x0=0  x1=0  x2=0  x3=0  x4=0  x5=0  x6=0  x7=0  
+
+--- CYCLE 3 ---
+WB  :
+MEM :
+EX  : addi x1,x0,10
+
+ID  : addi x2,x0,3
+
+IF  : add  x3,x1,x2
+
+
+Registers after cycle 3:
+x0=0  x1=0  x2=0  x3=0  x4=0  x5=0  x6=0  x7=0
+
+--- CYCLE 4 ---
+WB  :
+MEM : addi x1,x0,10
+
+EX  : addi x2,x0,3
+
+ID  : add  x3,x1,x2
+
+IF  : sub  x4,x3,x2
+
+
+Registers after cycle 4:
+x0=0  x1=0  x2=0  x3=0  x4=0  x5=0  x6=0  x7=0
+
+--- CYCLE 5 ---
+WB  : addi x1,x0,10
+
+MEM : addi x2,x0,3
+
+EX  : add  x3,x1,x2
+
+ID  : sub  x4,x3,x2
+
+IF  : and  x3,x4,x1
+
+
+Registers after cycle 5:
+x0=0  x1=10  x2=0  x3=0  x4=0  x5=0  x6=0  x7=0
+
+--- CYCLE 6 ---
+WB  : addi x2,x0,3
+
+MEM : add  x3,x1,x2
+
+EX  : sub  x4,x3,x2
+
+ID  : and  x3,x4,x1
+
+IF  : or   x5,x3,x2
+
+
+Registers after cycle 6:
+x0=0  x1=10  x2=3  x3=0  x4=0  x5=0  x6=0  x7=0
+
+--- CYCLE 7 ---
+WB  : add  x3,x1,x2
+
+MEM : sub  x4,x3,x2
+
+EX  : and  x3,x4,x1
+
+ID  : or   x5,x3,x2
+
+IF  : xor  x6,x5,x1
+
+
+Registers after cycle 7:
+x0=0  x1=10  x2=3  x3=13  x4=0  x5=0  x6=0  x7=0  
+
+--- CYCLE 8 ---
+WB  : sub  x4,x3,x2
+
+MEM : and  x3,x4,x1
+
+EX  : or   x5,x3,x2
+
+ID  : xor  x6,x5,x1
+
+IF  : add  x7,x6,x3
+
+
+Registers after cycle 8:
+x0=0  x1=10  x2=3  x3=13  x4=10  x5=0  x6=0  x7=0  
+
+--- CYCLE 9 ---
+WB  : and  x3,x4,x1
+
+MEM : or   x5,x3,x2
+
+EX  : xor  x6,x5,x1
+
+ID  : add  x7,x6,x3
+
+IF  : sub  x1,x7,x2
+
+
+Registers after cycle 9:
+x0=0  x1=10  x2=3  x3=10  x4=10  x5=0  x6=0  x7=0
+
+--- CYCLE 10 ---
+WB  : or   x5,x3,x2
+
+MEM : xor  x6,x5,x1
+
+EX  : add  x7,x6,x3
+
+ID  : sub  x1,x7,x2
+
+IF  : and  x2,x1,x4
+
+
+Registers after cycle 10:
+x0=0  x1=10  x2=3  x3=10  x4=10  x5=11  x6=0  x7=0
+
+--- CYCLE 11 ---
+WB  : xor  x6,x5,x1
+
+MEM : add  x7,x6,x3
+
+EX  : sub  x1,x7,x2
+
+ID  : and  x2,x1,x4
+
+IF  : halt
+
+
+Registers after cycle 11:
+x0=0  x1=10  x2=3  x3=10  x4=10  x5=11  x6=1  x7=0
+
+--- CYCLE 12 ---
+WB  : add  x7,x6,x3
+
+MEM : sub  x1,x7,x2
+
+EX  : and  x2,x1,x4
+
+ID  : halt
+
+IF  :
+
+
+Registers after cycle 12:
+x0=0  x1=10  x2=3  x3=10  x4=10  x5=11  x6=1  x7=11
+
+--- CYCLE 13 ---
+WB  : sub  x1,x7,x2
+
+MEM : and  x2,x1,x4
+
+EX  : halt
+
+ID  :
+
+IF  :
+
+Registers after cycle 13:
+x0=0  x1=8  x2=3  x3=10  x4=10  x5=11  x6=1  x7=11  
+
+--- CYCLE 14 ---
+WB  : and  x2,x1,x4
+
+MEM : halt
+
+EX  :
+
+ID  :
+IF  :
+
+Registers after cycle 14:
+x0=0  x1=8  x2=8  x3=10  x4=10  x5=11  x6=1  x7=11
+
+--- CYCLE 15 ---
+WB  : halt
+
+MEM :
+
+EX  :
+ID  :
+
+Registers after cycle 15:
+x0=0  x1=8  x2=8  x3=10  x4=10  x5=11  x6=1  x7=11
+
+====== FINAL REGISTER STATE ======
+
+Registers after cycle 15:
+x0=0  x1=8  x2=8  x3=10  x4=10  x5=11  x6=1  x7=11
