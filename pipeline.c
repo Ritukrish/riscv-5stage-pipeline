@@ -58,7 +58,7 @@ MEM_WB mem_wb, mem_wb_n;
 void print_registers()
 {
     printf("Registers: ");
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 16; i++)
         printf("x%d=%d ", i, REG[i]);
     printf("\n");
 }
