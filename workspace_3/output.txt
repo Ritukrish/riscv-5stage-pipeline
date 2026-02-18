@@ -1,0 +1,1456 @@
+
+--- CYCLE 1 ---
+WB  : 
+MEM : 
+EX  : 
+ID  : 
+IF  : addi x1,x0,5
+
+Registers: x0=0 x1=0 x2=0 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 2 ---
+WB  : 
+MEM : 
+EX  : 
+ID  : addi x1,x0,5
+
+IF  : addi x2,x0,1
+
+Registers: x0=0 x1=0 x2=0 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 3 ---
+WB  : 
+MEM : 
+EX  : addi x1,x0,5
+
+ID  : addi x2,x0,1
+
+IF  : addi x3,x0,1
+
+Registers: x0=0 x1=0 x2=0 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 4 ---
+WB  : 
+MEM : addi x1,x0,5
+
+EX  : addi x2,x0,1
+
+ID  : addi x3,x0,1
+
+IF  : beq x2,x1,11
+
+Registers: x0=0 x1=0 x2=0 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 5 ---
+WB  : addi x1,x0,5
+
+MEM : addi x2,x0,1
+
+EX  : addi x3,x0,1
+
+ID  : beq x2,x1,11
+
+IF  : addi x2,x2,1
+
+Registers: x0=0 x1=5 x2=0 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 6 ---
+WB  : addi x2,x0,1
+
+MEM : addi x3,x0,1
+
+EX  : beq x2,x1,11
+
+ID  : addi x2,x2,1
+
+IF  : addi x6,x3,0
+
+Registers: x0=0 x1=5 x2=1 x3=0 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 7 ---
+WB  : addi x3,x0,1
+
+MEM : beq x2,x1,11
+
+EX  : addi x2,x2,1
+
+ID  : addi x6,x3,0
+
+IF  : addi x5,x0,0
+
+Registers: x0=0 x1=5 x2=1 x3=1 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 8 ---
+WB  : beq x2,x1,11
+
+MEM : addi x2,x2,1
+
+EX  : addi x6,x3,0
+
+ID  : addi x5,x0,0
+
+IF  : addi x4,x0,0
+
+Registers: x0=0 x1=5 x2=1 x3=1 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 9 ---
+WB  : addi x2,x2,1
+
+MEM : addi x6,x3,0
+
+EX  : addi x5,x0,0
+
+ID  : addi x4,x0,0
+
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=0 x5=0 x6=0 x7=0 
+
+--- CYCLE 10 ---
+WB  : addi x6,x3,0
+
+MEM : addi x5,x0,0
+
+EX  : addi x4,x0,0
+
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=0 x5=0 x6=1 x7=0 
+
+--- CYCLE 11 ---
+WB  : addi x5,x0,0
+
+MEM : addi x4,x0,0
+
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=0 x5=0 x6=1 x7=0 
+
+--- CYCLE 12 ---
+WB  : addi x4,x0,0
+
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=0 x5=0 x6=1 x7=0 
+
+--- CYCLE 13 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=0 x5=1 x6=1 x7=0 
+
+--- CYCLE 14 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=1 x6=1 x7=0 
+
+--- CYCLE 15 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=1 x6=1 x7=0 
+
+--- CYCLE 16 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=1 x6=1 x7=0 
+
+--- CYCLE 17 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=1 x6=1 x7=0 
+
+--- CYCLE 18 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=1 x6=1 x7=0 
+
+--- CYCLE 19 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=2 x3=1 x4=1 x5=2 x6=1 x7=0 
+
+--- CYCLE 20 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 21 ---
+WB  : beq x4,x2,2
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : addi x3,x5,0
+
+IF  : beq x0,x0,-10
+
+Registers: x0=0 x1=5 x2=2 x3=1 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 22 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : addi x3,x5,0
+
+ID  : beq x0,x0,-10
+
+IF  : halt
+Registers: x0=0 x1=5 x2=2 x3=1 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 23 ---
+WB  : FLUSH
+MEM : addi x3,x5,0
+
+EX  : beq x0,x0,-10
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=2 x3=1 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 24 ---
+WB  : addi x3,x5,0
+
+MEM : beq x0,x0,-10
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : beq x2,x1,11
+
+Registers: x0=0 x1=5 x2=2 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 25 ---
+WB  : beq x0,x0,-10
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : beq x2,x1,11
+
+IF  : addi x2,x2,1
+
+Registers: x0=0 x1=5 x2=2 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 26 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : beq x2,x1,11
+
+ID  : addi x2,x2,1
+
+IF  : addi x6,x3,0
+
+Registers: x0=0 x1=5 x2=2 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 27 ---
+WB  : FLUSH
+MEM : beq x2,x1,11
+
+EX  : addi x2,x2,1
+
+ID  : addi x6,x3,0
+
+IF  : addi x5,x0,0
+
+Registers: x0=0 x1=5 x2=2 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 28 ---
+WB  : beq x2,x1,11
+
+MEM : addi x2,x2,1
+
+EX  : addi x6,x3,0
+
+ID  : addi x5,x0,0
+
+IF  : addi x4,x0,0
+
+Registers: x0=0 x1=5 x2=2 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 29 ---
+WB  : addi x2,x2,1
+
+MEM : addi x6,x3,0
+
+EX  : addi x5,x0,0
+
+ID  : addi x4,x0,0
+
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=2 x6=1 x7=0 
+
+--- CYCLE 30 ---
+WB  : addi x6,x3,0
+
+MEM : addi x5,x0,0
+
+EX  : addi x4,x0,0
+
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=2 x6=2 x7=0 
+
+--- CYCLE 31 ---
+WB  : addi x5,x0,0
+
+MEM : addi x4,x0,0
+
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=0 x6=2 x7=0 
+
+--- CYCLE 32 ---
+WB  : addi x4,x0,0
+
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=0 x5=0 x6=2 x7=0 
+
+--- CYCLE 33 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=0 x5=2 x6=2 x7=0 
+
+--- CYCLE 34 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=2 x6=2 x7=0 
+
+--- CYCLE 35 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=2 x6=2 x7=0 
+
+--- CYCLE 36 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=2 x6=2 x7=0 
+
+--- CYCLE 37 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=2 x6=2 x7=0 
+
+--- CYCLE 38 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=2 x6=2 x7=0 
+
+--- CYCLE 39 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=1 x5=4 x6=2 x7=0 
+
+--- CYCLE 40 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=4 x6=2 x7=0 
+
+--- CYCLE 41 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=4 x6=2 x7=0 
+
+--- CYCLE 42 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=4 x6=2 x7=0 
+
+--- CYCLE 43 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=4 x6=2 x7=0 
+
+--- CYCLE 44 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=4 x6=2 x7=0 
+
+--- CYCLE 45 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=3 x3=2 x4=2 x5=6 x6=2 x7=0 
+
+--- CYCLE 46 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 47 ---
+WB  : beq x4,x2,2
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : addi x3,x5,0
+
+IF  : beq x0,x0,-10
+
+Registers: x0=0 x1=5 x2=3 x3=2 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 48 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : addi x3,x5,0
+
+ID  : beq x0,x0,-10
+
+IF  : halt
+Registers: x0=0 x1=5 x2=3 x3=2 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 49 ---
+WB  : FLUSH
+MEM : addi x3,x5,0
+
+EX  : beq x0,x0,-10
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=3 x3=2 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 50 ---
+WB  : addi x3,x5,0
+
+MEM : beq x0,x0,-10
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : beq x2,x1,11
+
+Registers: x0=0 x1=5 x2=3 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 51 ---
+WB  : beq x0,x0,-10
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : beq x2,x1,11
+
+IF  : addi x2,x2,1
+
+Registers: x0=0 x1=5 x2=3 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 52 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : beq x2,x1,11
+
+ID  : addi x2,x2,1
+
+IF  : addi x6,x3,0
+
+Registers: x0=0 x1=5 x2=3 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 53 ---
+WB  : FLUSH
+MEM : beq x2,x1,11
+
+EX  : addi x2,x2,1
+
+ID  : addi x6,x3,0
+
+IF  : addi x5,x0,0
+
+Registers: x0=0 x1=5 x2=3 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 54 ---
+WB  : beq x2,x1,11
+
+MEM : addi x2,x2,1
+
+EX  : addi x6,x3,0
+
+ID  : addi x5,x0,0
+
+IF  : addi x4,x0,0
+
+Registers: x0=0 x1=5 x2=3 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 55 ---
+WB  : addi x2,x2,1
+
+MEM : addi x6,x3,0
+
+EX  : addi x5,x0,0
+
+ID  : addi x4,x0,0
+
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=6 x6=2 x7=0 
+
+--- CYCLE 56 ---
+WB  : addi x6,x3,0
+
+MEM : addi x5,x0,0
+
+EX  : addi x4,x0,0
+
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=6 x6=6 x7=0 
+
+--- CYCLE 57 ---
+WB  : addi x5,x0,0
+
+MEM : addi x4,x0,0
+
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=0 x6=6 x7=0 
+
+--- CYCLE 58 ---
+WB  : addi x4,x0,0
+
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=0 x5=0 x6=6 x7=0 
+
+--- CYCLE 59 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=0 x5=6 x6=6 x7=0 
+
+--- CYCLE 60 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=6 x6=6 x7=0 
+
+--- CYCLE 61 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=6 x6=6 x7=0 
+
+--- CYCLE 62 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=6 x6=6 x7=0 
+
+--- CYCLE 63 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=6 x6=6 x7=0 
+
+--- CYCLE 64 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=6 x6=6 x7=0 
+
+--- CYCLE 65 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=1 x5=12 x6=6 x7=0 
+
+--- CYCLE 66 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=12 x6=6 x7=0 
+
+--- CYCLE 67 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=12 x6=6 x7=0 
+
+--- CYCLE 68 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=12 x6=6 x7=0 
+
+--- CYCLE 69 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=12 x6=6 x7=0 
+
+--- CYCLE 70 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=12 x6=6 x7=0 
+
+--- CYCLE 71 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=2 x5=18 x6=6 x7=0 
+
+--- CYCLE 72 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=18 x6=6 x7=0 
+
+--- CYCLE 73 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=18 x6=6 x7=0 
+
+--- CYCLE 74 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=18 x6=6 x7=0 
+
+--- CYCLE 75 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=18 x6=6 x7=0 
+
+--- CYCLE 76 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=18 x6=6 x7=0 
+
+--- CYCLE 77 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=4 x3=6 x4=3 x5=24 x6=6 x7=0 
+
+--- CYCLE 78 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 79 ---
+WB  : beq x4,x2,2
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : addi x3,x5,0
+
+IF  : beq x0,x0,-10
+
+Registers: x0=0 x1=5 x2=4 x3=6 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 80 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : addi x3,x5,0
+
+ID  : beq x0,x0,-10
+
+IF  : halt
+Registers: x0=0 x1=5 x2=4 x3=6 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 81 ---
+WB  : FLUSH
+MEM : addi x3,x5,0
+
+EX  : beq x0,x0,-10
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=4 x3=6 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 82 ---
+WB  : addi x3,x5,0
+
+MEM : beq x0,x0,-10
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : beq x2,x1,11
+
+Registers: x0=0 x1=5 x2=4 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 83 ---
+WB  : beq x0,x0,-10
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : beq x2,x1,11
+
+IF  : addi x2,x2,1
+
+Registers: x0=0 x1=5 x2=4 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 84 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : beq x2,x1,11
+
+ID  : addi x2,x2,1
+
+IF  : addi x6,x3,0
+
+Registers: x0=0 x1=5 x2=4 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 85 ---
+WB  : FLUSH
+MEM : beq x2,x1,11
+
+EX  : addi x2,x2,1
+
+ID  : addi x6,x3,0
+
+IF  : addi x5,x0,0
+
+Registers: x0=0 x1=5 x2=4 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 86 ---
+WB  : beq x2,x1,11
+
+MEM : addi x2,x2,1
+
+EX  : addi x6,x3,0
+
+ID  : addi x5,x0,0
+
+IF  : addi x4,x0,0
+
+Registers: x0=0 x1=5 x2=4 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 87 ---
+WB  : addi x2,x2,1
+
+MEM : addi x6,x3,0
+
+EX  : addi x5,x0,0
+
+ID  : addi x4,x0,0
+
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=24 x6=6 x7=0 
+
+--- CYCLE 88 ---
+WB  : addi x6,x3,0
+
+MEM : addi x5,x0,0
+
+EX  : addi x4,x0,0
+
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=24 x6=24 x7=0 
+
+--- CYCLE 89 ---
+WB  : addi x5,x0,0
+
+MEM : addi x4,x0,0
+
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=0 x6=24 x7=0 
+
+--- CYCLE 90 ---
+WB  : addi x4,x0,0
+
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=0 x5=0 x6=24 x7=0 
+
+--- CYCLE 91 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=0 x5=24 x6=24 x7=0 
+
+--- CYCLE 92 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=24 x6=24 x7=0 
+
+--- CYCLE 93 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=24 x6=24 x7=0 
+
+--- CYCLE 94 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=24 x6=24 x7=0 
+
+--- CYCLE 95 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=24 x6=24 x7=0 
+
+--- CYCLE 96 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=24 x6=24 x7=0 
+
+--- CYCLE 97 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=1 x5=48 x6=24 x7=0 
+
+--- CYCLE 98 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=48 x6=24 x7=0 
+
+--- CYCLE 99 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=48 x6=24 x7=0 
+
+--- CYCLE 100 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=48 x6=24 x7=0 
+
+--- CYCLE 101 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=48 x6=24 x7=0 
+
+--- CYCLE 102 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=48 x6=24 x7=0 
+
+--- CYCLE 103 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=2 x5=72 x6=24 x7=0 
+
+--- CYCLE 104 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=72 x6=24 x7=0 
+
+--- CYCLE 105 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=72 x6=24 x7=0 
+
+--- CYCLE 106 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=72 x6=24 x7=0 
+
+--- CYCLE 107 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=72 x6=24 x7=0 
+
+--- CYCLE 108 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=72 x6=24 x7=0 
+
+--- CYCLE 109 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : beq x0,x0,-3
+
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=3 x5=96 x6=24 x7=0 
+
+--- CYCLE 110 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : beq x0,x0,-3
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=96 x6=24 x7=0 
+
+--- CYCLE 111 ---
+WB  : beq x4,x2,2
+
+MEM : beq x0,x0,-3
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : add x5,x5,x6
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=96 x6=24 x7=0 
+
+--- CYCLE 112 ---
+WB  : beq x0,x0,-3
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : add x5,x5,x6
+
+IF  : addi x4,x4,1
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=96 x6=24 x7=0 
+
+--- CYCLE 113 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : add x5,x5,x6
+
+ID  : addi x4,x4,1
+
+IF  : beq x4,x2,2
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=96 x6=24 x7=0 
+
+--- CYCLE 114 ---
+WB  : FLUSH
+MEM : add x5,x5,x6
+
+EX  : addi x4,x4,1
+
+ID  : beq x4,x2,2
+
+IF  : beq x0,x0,-3
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=96 x6=24 x7=0 
+
+--- CYCLE 115 ---
+WB  : add x5,x5,x6
+
+MEM : addi x4,x4,1
+
+EX  : beq x4,x2,2
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=4 x5=120 x6=24 x7=0 
+
+--- CYCLE 116 ---
+WB  : addi x4,x4,1
+
+MEM : beq x4,x2,2
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : addi x3,x5,0
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 117 ---
+WB  : beq x4,x2,2
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : addi x3,x5,0
+
+IF  : beq x0,x0,-10
+
+Registers: x0=0 x1=5 x2=5 x3=24 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 118 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : addi x3,x5,0
+
+ID  : beq x0,x0,-10
+
+IF  : halt
+Registers: x0=0 x1=5 x2=5 x3=24 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 119 ---
+WB  : FLUSH
+MEM : addi x3,x5,0
+
+EX  : beq x0,x0,-10
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=24 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 120 ---
+WB  : addi x3,x5,0
+
+MEM : beq x0,x0,-10
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : beq x2,x1,11
+
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 121 ---
+WB  : beq x0,x0,-10
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : beq x2,x1,11
+
+IF  : addi x2,x2,1
+
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 122 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : beq x2,x1,11
+
+ID  : FLUSH
+IF  : FLUSH (BRANCH)
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 123 ---
+WB  : FLUSH
+MEM : beq x2,x1,11
+
+EX  : FLUSH
+ID  : FLUSH
+IF  : halt
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 124 ---
+WB  : beq x2,x1,11
+
+MEM : FLUSH
+EX  : FLUSH
+ID  : halt
+IF  : NOP
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 125 ---
+WB  : FLUSH
+MEM : FLUSH
+EX  : halt
+ID  : NOP
+IF  : NOP
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 126 ---
+WB  : FLUSH
+MEM : halt
+EX  : NOP
+ID  : NOP
+IF  : NOP
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+--- CYCLE 127 ---
+WB  : halt
+MEM : NOP
+EX  : NOP
+ID  : NOP
+Registers: x0=0 x1=5 x2=5 x3=120 x4=5 x5=120 x6=24 x7=0 
+
+===== FINAL REGISTER STATE =====
+x0  = 0    x1  = 5    x2  = 5    x3  = 120  x4  = 5    x5  = 120  x6  = 24   x7  = 0    
+x8  = 0    x9  = 0    x10 = 0    x11 = 0    x12 = 0    x13 = 0    x14 = 0    x15 = 0    
+x16 = 0    x17 = 0    x18 = 0    x19 = 0    x20 = 0    x21 = 0    x22 = 0    x23 = 0    
+x24 = 0    x25 = 0    x26 = 0    x27 = 0    x28 = 0    x29 = 0    x30 = 0    x31 = 0    
