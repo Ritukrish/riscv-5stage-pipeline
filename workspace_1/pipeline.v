@@ -243,7 +243,7 @@ void update_regs()
 /* ================= LOAD INSTRUCTIONS ================= */
 void load_instructions()
 {
-    FILE *f = fopen("inst2.txt", "r");
+    FILE *f = fopen("inst.txt", "r");
     if (!f)
         return;
     char line[100];
