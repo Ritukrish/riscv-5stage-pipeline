@@ -194,10 +194,3 @@ Final registers:
 ```
 x4 = 15
 ```
-
----
-
-
-
-
-If you want, I can also generate a **pipeline timing diagram (cycle vs instruction chart)** — teachers LOVE asking that in viva.
