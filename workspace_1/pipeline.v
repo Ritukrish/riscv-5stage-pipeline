@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdarg.h>
 
 #define REG_COUNT 32
 #define MEM_SIZE 1024
@@ -7,7 +8,16 @@
 
 typedef enum
 {
-  ADD,SUB,ADDI,AND,OR,XOR,LW,SW,BEQ,HALT,NOP
+    ADD,
+    SUB,
+    ADDI,
+    AND,
+    OR,
+    XOR,
+    LW,
+    SW,
+    HALT,
+    NOP
 } opcode_t;
 
 typedef struct
@@ -45,23 +55,38 @@ ID_EX id_ex, id_ex_n;
 EX_MEM ex_mem, ex_mem_n;
 MEM_WB mem_wb, mem_wb_n;
 
+FILE *out_file;
+/* ================= PRINT ================= */
+void print_log(const char *format, ...) {
+    va_list args;
+    
+    // Print to Console
+    va_start(args, format);
+    vprintf(format, args);
+    va_end(args);
+
+    // Print to File
+    va_start(args, format);
+    vfprintf(out_file, format, args);
+    va_end(args);
+}
 /* ================= PRINT FUNCTION ================= */
 void print_registers()
 {
-    printf("Registers: ");
+    print_log("Registers: ");
     for (int i = 0; i < 16; i++)
-        printf("x%d=%d ", i, REG[i]);
-    printf("\n");
+        print_log("x%d=%d ", i, REG[i]);
+    print_log("\n");
 }
 
 void final_register_dump()
 {
-    printf("\n===== FINAL REGISTER STATE =====\n");
+    print_log("\n===== FINAL REGISTER STATE =====\n");
     for (int i = 0; i < REG_COUNT; i++)
     {
-        printf("x%-2d = %-5d", i, REG[i]);
+        print_log("x%-2d = %-5d", i, REG[i]);
         if ((i + 1) % 8 == 0)
-            printf("\n");
+            print_log("\n");
     }
 }
 
@@ -72,7 +97,7 @@ void fetch()
         return;
     if (stall)
     {
-        printf("IF  : STALL\n");
+        print_log("IF  : STALL\n");
         return;
     }
 
@@ -97,7 +122,7 @@ void fetch()
             PC += 4; // real RISC-V increment
         }
     }
-    printf("IF  : %s\n", if_id_n.instr.text);
+    print_log("IF  : %s\n", if_id_n.instr.text);
 }
 
 /* ================= DECODE ================= */
@@ -109,7 +134,7 @@ void decode()
         id_ex_n.instr.op = NOP;
         strcpy(id_ex_n.instr.text, "NOP");
         id_ex_n.RegWrite = id_ex_n.MemRead = id_ex_n.MemWrite = 0;
-        printf("ID  : STALL\n");
+        print_log("ID  : STALL\n");
         return;
     }
 
@@ -120,7 +145,7 @@ void decode()
     id_ex_n.RegWrite = (if_id.instr.op != SW && if_id.instr.op != HALT && if_id.instr.op != NOP);
     id_ex_n.MemRead = (if_id.instr.op == LW);
     id_ex_n.MemWrite = (if_id.instr.op == SW);
-    printf("ID  : %s\n", id_ex_n.instr.text);
+    print_log("ID  : %s\n", id_ex_n.instr.text);
 }
 
 /* ================= EXECUTE ================= */
@@ -177,7 +202,7 @@ void execute()
     }
 
     ex_mem_n.WriteData = B;
-    printf("EX  : %s\n", ex_mem_n.instr.text);
+    print_log("EX  : %s\n", ex_mem_n.instr.text);
 }
 
 /* ================= MEMORY ================= */
@@ -191,7 +216,7 @@ void memory()
         DATA_MEM[ex_mem.ALUOut] = ex_mem.WriteData;
     else
         mem_wb_n.Result = ex_mem.ALUOut;
-    printf("MEM : %s\n", mem_wb_n.instr.text);
+    print_log("MEM : %s\n", mem_wb_n.instr.text);
 }
 
 /* ================= WRITEBACK ================= */
@@ -202,7 +227,7 @@ void writeback()
     if (mem_wb.instr.op == HALT)
         halted = 1;
     REG[0] = 0;
-    printf("WB  : %s\n", mem_wb.instr.text);
+    print_log("WB  : %s\n", mem_wb.instr.text);
 }
 
 /* ================= CLOCK EDGE ================= */
@@ -254,10 +279,14 @@ int main()
     memset(REG, 0, sizeof(REG));
     memset(DATA_MEM, 0, sizeof(DATA_MEM));
     load_instructions();
-
+    out_file = fopen("output.txt", "w");
+    if (out_file == NULL) {
+        print_log("Error opening output.txt!\n");
+        return 1;
+    }
     while (!halted && cycle < 200)
     {
-        printf("\n--- CYCLE %d ---\n", cycle++);
+        print_log("\n--- CYCLE %d ---\n", cycle++);
         writeback();
         memory();
         execute();
@@ -268,5 +297,6 @@ int main()
     }
 
     final_register_dump();
+    fclose(out_file);
     return 0;
 }
